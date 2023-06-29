@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.itexus.app.ui'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+}
+
+dependencies {
+
+    implementation rootProject.ext.dependencies.coreKtx
+    implementation rootProject.ext.dependencies.composeNavigation
+    implementation rootProject.ext.dependencies.material3
+    implementation rootProject.ext.dependencies.koinCompose
+
+    api project(path: ':list:logic')
+}
